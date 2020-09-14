@@ -1,16 +1,21 @@
 ext {
     versions = [
-            "kotlin_version"   : "1.3.10",
-            "gradle_version"   : "3.5.3",
+            "kotlinVersion"    : "1.3.72",
+            "gradleVersion"    : "3.6.3",
             "compileSdkVersion": 28,
             "buildToolsVersion": "28.0.3",
             "minSdkVersion"    : 15,
             "targetSdkVersion" : 28,
     ]
 
-    deps = [
+    depPlugins = [
+            "gradlePlugin": "com.android.tools.build:gradle:${versions["gradleVersion"]}",
+            "kotlinPlugin": "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions["kotlinVersion"]}",
+    ]
+
+    depLibs = [
             "junit"                  : "junit:junit:4.12",
-            "kotlin"                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+            "kotlin"                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions["kotlinVersion"]}",
 
             // dagger
             "dagger"                 : 'com.google.dagger:dagger:2.26',
@@ -111,17 +116,17 @@ ext {
 
             // FastJson 配置
             // https://github.com/alibaba/fastjson/issues/2054
-            "kotlin_reflect"         : "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version",
+            "kotlin_reflect"         : "org.jetbrains.kotlin:kotlin-reflect:${versions["kotlinVersion"]}",
             "fastjson"               : "com.alibaba:fastjson:1.2.59",
 
             "hyphenate_sdk_lite"     : "com.hyphenate:hyphenate-sdk-lite:3.4.3",
     ]
 
-    depAndroids = [
+    depAndroidLibs = [
             appcompat_v7: "com.android.support:appcompat-v7:28.0.0"
     ]
 
-    depAndroidxs = [
+    depAndroidxLibs = [
             core            : "androidx.core:core:1.2.0",
             appcompat       : "androidx.appcompat:appcompat:1.1.0",
             annotation      : "androidx.annotation:annotation:1.1.0",
