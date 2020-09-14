@@ -1,0 +1,72 @@
+apply plugin: 'maven-publish'
+
+// 压缩生成归档文件
+task packZip(type: Zip) {
+    archiveBaseName = project.name
+    archiveAppendix = VERSION
+    archiveClassifier = "all"
+    archiveExtension = "zip"
+    // 打包根路径
+    from project.projectDir.absolutePath
+    // 输出路径
+    // destinationDir = project.projectDir.absoluteFile
+    exclude '**.zip'
+    exclude '**.iml'
+    exclude '**/**.iml'
+    exclude 'build/**'
+    exclude '.idea/**'
+    exclude '.gradle/**'
+    exclude 'gradle/**'
+    exclude '**/build/**'
+    exclude 'repo/**'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            debug(MavenPublication) {
+                from components.debug
+
+                // 为方便多个 lib 项目上传操作
+                groupId GROUP_ID
+                artifactId ARTIFACT_ID
+                version VERSION + "-debug"
+
+                // 添加其它文件
+                artifact packZip
+            }
+            release(MavenPublication) {
+                from components.release
+
+                // 为方便多个 lib 项目上传操作
+                groupId GROUP_ID
+                artifactId ARTIFACT_ID
+                version VERSION
+
+                // 添加其它文件
+                artifact packZip
+            }
+        }
+
+        // 定义发布到哪里
+        repositories {
+            // 定义一个 maven 仓库
+            maven {
+                name = "remote"
+                // 可以有且仅有一个仓库不指定 name 属性，会隐式设置为 Maven
+                url = "http://localhost:8081/repository/maven-releases/"
+                // 仓库用户名密码
+                credentials {
+                    username = MavenUsername
+                    password = MavenPassword
+                }
+            }
+            // 定义第二个 maven 仓库，名为 MavenOfProject
+            maven {
+                // 必须显示指定 name
+                name = "project"
+                url = uri("$rootDir/repo/")
+            }
+        }
+    }
+}
