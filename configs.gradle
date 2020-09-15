@@ -9,8 +9,9 @@ ext {
     ]
 
     depPlugins = [
-            "gradlePlugin": "com.android.tools.build:gradle:${versions["gradleVersion"]}",
-            "kotlinPlugin": "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions["kotlinVersion"]}",
+            "gradlePlugin"       : "com.android.tools.build:gradle:${versions["gradleVersion"]}",
+            "kotlinPlugin"       : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions["kotlinVersion"]}",
+            "kotlinAndroidPlugin": "org.jetbrains.kotlin:kotlin-android-extensions:${versions["kotlinVersion"]}",
     ]
 
     depLibs = [
@@ -133,6 +134,7 @@ ext {
             "annotation"      : "androidx.annotation:annotation:1.1.0",
             "recyclerview"    : "androidx.recyclerview:recyclerview:1.1.0",
             "constraintlayout": "androidx.constraintlayout:constraintlayout:2.0.1",
+            "cardview"        : "androidx.cardview:cardview:1.0.0",
     ]
 
     depMyLibs = [
