@@ -1,3 +1,4 @@
+# Studio
 /.gradle
 /.idea
 /build
@@ -10,3 +11,8 @@
 /.externalNativeBuild
 /.cxx
 *.iml
+
+# Visual Studio Code
+*.classpath
+*.project
+**/.settings
