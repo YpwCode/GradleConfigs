@@ -1,0 +1,64 @@
+apply from: "configs.gradle"
+ext.setAppDefaultConfig = {
+    apply plugin: 'com.android.application'
+    setApplyDefaultConfig()
+    setModuleDefaultConfig()
+    setDepDefaultConfig()
+}
+
+ext.setLibDefaultConfig = {
+    apply plugin: 'com.android.library'
+    setApplyDefaultConfig()
+    setModuleDefaultConfig()
+    setDepDefaultConfig()
+}
+
+ext.setApplyDefaultConfig = {
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-android-extensions'
+    apply plugin: 'kotlin-kapt'
+}
+
+ext.setModuleDefaultConfig = {
+    android {
+        compileSdkVersion versions.compileSdkVersion
+        buildToolsVersion versions.buildToolsVersion
+
+        defaultConfig {
+            minSdkVersion versions.minSdkVersion
+            targetSdkVersion versions.targetSdkVersion
+        }
+
+        buildTypes {
+            debug {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+
+        lintOptions {
+            checkReleaseBuilds false
+            // Or, if you prefer, you can continue to check for errors in release builds,
+            // but continue the build even when errors are found:
+            abortOnError false
+        }
+
+        compileOptions {
+            // 指定 Java 版本 1.8
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+    }
+}
+
+ext.setDepDefaultConfig = {
+    dependencies {
+        implementation fileTree(include: ['*.jar'], dir: 'libs')
+        implementation Config.depConfig.kotlin
+    }
+}
