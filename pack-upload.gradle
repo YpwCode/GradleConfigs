@@ -50,9 +50,13 @@ afterEvaluate {
 
         // 定义发布到哪里
         repositories {
-            // 定义一个 maven 仓库
             maven {
-                name = "remote"
+                // 如果定义多个 maven 必须显示指定 name
+                name = "project"
+                url = uri("$rootDir/repo/")
+            }
+            maven {
+                name = "Mac"
                 // 可以有且仅有一个仓库不指定 name 属性，会隐式设置为 Maven
                 url = "http://localhost:8081/repository/maven-releases/"
                 // 仓库用户名密码
@@ -61,11 +65,15 @@ afterEvaluate {
                     password = MavenPassword
                 }
             }
-            // 定义第二个 maven 仓库，名为 MavenOfProject
             maven {
-                // 必须显示指定 name
-                name = "project"
-                url = uri("$rootDir/repo/")
+                name = "emao"
+                // 可以有且仅有一个仓库不指定 name 属性，会隐式设置为 Maven
+                url = "http://172.16.28.26:8081/repository/emao/"
+                // 仓库用户名密码
+                credentials {
+                    username 'yangpengwei'
+                    password 'yangpengwei1344'
+                }
             }
         }
     }
