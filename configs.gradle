@@ -1,7 +1,7 @@
 ext {
 
     mavens = [
-            "local":"http://localhost:8081/repository/maven-public/",
+            "local": "http://localhost:8081/repository/maven-public/",
     ]
 
     versions = [
@@ -148,5 +148,6 @@ ext {
             "lib_utils"   : "com.ypw.code:utils:1.0.0",
             "lib_titlebar": "com.ypw.code:titlebar:1.0.0",
             "lib_sidebar" : "com.ypw.code:sidebar:1.0.0",
+            "lib_flow"    : "com.ypw.code:flow:1.0.0",
     ]
 }
