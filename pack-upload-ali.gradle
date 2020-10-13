@@ -1,0 +1,33 @@
+apply plugin: 'maven'
+
+task uploadRelease(type: Upload) {
+    group = "uploadMaven"
+    configuration = configurations.archives
+    uploadDescriptor = true
+    repositories {
+        mavenDeployer {
+            repository(url: 'https://packages.aliyun.com/maven/repository/2041651-release-InmsZd/') {
+                authentication(userName: "5f8554452d5925c55b014445", password: "qUq3HlczdVXT")
+            }
+            pom.groupId = GROUP_ID
+            pom.artifactId = ARTIFACT_ID
+            pom.version = VERSION
+        }
+    }
+}
+
+task uploadSnapshot(type: Upload) {
+    group = "uploadMaven"
+    configuration = configurations.archives
+    uploadDescriptor = true
+    repositories {
+        mavenDeployer {
+            snapshotRepository(url: 'https://packages.aliyun.com/maven/repository/2041651-snapshot-ivwwLk/') {
+                authentication(userName: "5f8554452d5925c55b014445", password: "qUq3HlczdVXT")
+            }
+            pom.groupId = GROUP_ID
+            pom.artifactId = ARTIFACT_ID
+            pom.version = VERSION + "-SNAPSHOT"
+        }
+    }
+}
