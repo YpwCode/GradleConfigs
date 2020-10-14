@@ -6,8 +6,8 @@ task uploadRelease(type: Upload) {
     uploadDescriptor = true
     repositories {
         mavenDeployer {
-            repository(url: 'https://packages.aliyun.com/maven/repository/2041651-release-InmsZd/') {
-                authentication(userName: "5f8554452d5925c55b014445", password: "qUq3HlczdVXT")
+            repository(url: mavens.aliRelease) {
+                authentication(userName: mavens.aliName, password: mavens.aliPwd)
             }
             pom.groupId = GROUP_ID
             pom.artifactId = ARTIFACT_ID
@@ -22,8 +22,8 @@ task uploadSnapshot(type: Upload) {
     uploadDescriptor = true
     repositories {
         mavenDeployer {
-            snapshotRepository(url: 'https://packages.aliyun.com/maven/repository/2041651-snapshot-ivwwLk/') {
-                authentication(userName: "5f8554452d5925c55b014445", password: "qUq3HlczdVXT")
+            snapshotRepository(url: mavens.aliSnapshot) {
+                authentication(userName: mavens.aliName, password: mavens.aliPwd)
             }
             pom.groupId = GROUP_ID
             pom.artifactId = ARTIFACT_ID
