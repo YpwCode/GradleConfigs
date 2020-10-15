@@ -5,10 +5,6 @@ ext {
             "localName": "maven",
             "localPwd": "mavenwirter",
 
-            "emao": "http://172.16.28.26:8081/repository/emao/",
-            "emaoName": "yangpengwei",
-            "emaoPwd": "yangpengwei1334",
-
             "aliRelease": "https://packages.aliyun.com/maven/repository/2041651-release-InmsZd/",
             "aliSnapshot": "https://packages.aliyun.com/maven/repository/2041651-snapshot-ivwwLk/",
             "aliName": "5f8554452d5925c55b014445",

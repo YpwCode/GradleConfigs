@@ -65,16 +65,6 @@ afterEvaluate {
                     password mavens.localPwd
                 }
             }
-            maven {
-                name = "emao"
-                // 可以有且仅有一个仓库不指定 name 属性，会隐式设置为 Maven
-                url = mavens.emao
-                // 仓库用户名密码
-                credentials {
-                    username mavens.emaoName
-                    password mavens.emaoPwd
-                }
-            }
         }
     }
 }
