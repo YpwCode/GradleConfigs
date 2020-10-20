@@ -153,7 +153,7 @@ ext {
     depMyLibs = [
             "lib_dimen"   : "com.ypw.code:dimen:1.0.0",
             "lib_utils"   : "com.ypw.code:utils:1.0.0",
-            "lib_titlebar": "com.ypw.code:titlebar:1.0.0",
+            "lib_titlebar": "com.ypw.code:titlebar:1.0.1",
             "lib_bubble"  : "com.ypw.code:bubble:1.0.0",
             "lib_light"   : "com.ypw.code:light:1.0.0",
 
