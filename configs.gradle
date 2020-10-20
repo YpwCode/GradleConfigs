@@ -1,14 +1,14 @@
 ext {
 
     mavens = [
-            "local": "http://localhost:8081/repository/maven-public/",
-            "localName": "maven",
-            "localPwd": "mavenwirter",
+            "local"      : "http://localhost:8081/repository/maven-public/",
+            "localName"  : "maven",
+            "localPwd"   : "mavenwirter",
 
-            "aliRelease": "https://packages.aliyun.com/maven/repository/2041651-release-InmsZd/",
+            "aliRelease" : "https://packages.aliyun.com/maven/repository/2041651-release-InmsZd/",
             "aliSnapshot": "https://packages.aliyun.com/maven/repository/2041651-snapshot-ivwwLk/",
-            "aliName": "5f8554452d5925c55b014445",
-            "aliPwd": "qUq3HlczdVXT",
+            "aliName"    : "5f8554452d5925c55b014445",
+            "aliPwd"     : "qUq3HlczdVXT",
     ]
 
     versions = [
@@ -154,6 +154,9 @@ ext {
             "lib_dimen"   : "com.ypw.code:dimen:1.0.0",
             "lib_utils"   : "com.ypw.code:utils:1.0.0",
             "lib_titlebar": "com.ypw.code:titlebar:1.0.0",
+            "lib_bubble"  : "com.ypw.code:bubble:1.0.0",
+            "lib_light"   : "com.ypw.code:light:1.0.0",
+
             "lib_sidebar" : "com.ypw.code:sidebar:1.0.0",
             "lib_flow"    : "com.ypw.code:flow:1.0.0",
     ]
